@@ -1,6 +1,11 @@
-# SimpleForm::MagicSubmit
+# Magic Submit Button for Simple Form
 
-TODO: Write a gem description
+A smart submit button extension for the Simple Form gem that:
+
+- Displays an alternate title on validation errors.
+- Displays a different "Loading..." title depending on whether the model is being saved or updated.
+- Is optionally postfixed with a "Cancel" link.
+- Is fully localizable via the I18n gem.
 
 ## Installation
 
