@@ -40,4 +40,4 @@ module SimpleForm
 end
 
 SimpleForm::FormBuilder.send :include, SimpleForm::MagicSubmit
-I18n.load_path += Dir.glob(File.dirname(__FILE__) + "../../locales/*.{rb,yml}")
+I18n.load_path += Dir.glob(File.join(File.dirname(__FILE__), '..', '..', 'locales', '*.{rb,yml}'))
