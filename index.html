@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Magic Submit Button for Simple Form by eploko</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Magic Submit Button for Simple Form</h1>
+        <h2>A smart submit button extension for the Simple Form gem.</h2>
+        <a href="https://github.com/eploko/simple_form-magic_submit" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>Magic Submit Button for Simple Form</h1>
+
+<p>A smart submit button extension for the Simple Form gem that:</p>
+
+<ul>
+<li>Displays an alternate title on validation errors.</li>
+<li>Displays a different "Loading..." title depending on whether the model is being saved or updated.</li>
+<li>Is optionally postfixed with a "Cancel" link.</li>
+<li>Is fully localizable via the I18n gem.</li>
+</ul><h2>A picture's worth a thousand words, right?</h2>
+
+<p>For a newly created model object, typically in a <code>new.html.haml</code>:</p>
+
+<p><img src="https://raw.github.com/eploko/simple_form-magic_submit/master/preview/01-submit.png" width="720" height="190" alt="A preview of the submit button in the simples case."></p>
+
+<p>Add a cancel link:</p>
+
+<p><img src="https://raw.github.com/eploko/simple_form-magic_submit/master/preview/02-submit-with-cancel.png" width="720" height="190" alt="A preview of the submit button accompanied by a Cancel link."></p>
+
+<p>When something goes wrong and the model fails validation:</p>
+
+<p><img src="https://raw.github.com/eploko/simple_form-magic_submit/master/preview/03-model-invalid.png" width="720" height="260" alt="A preview of the submit button with a different title when the validation has failed."></p>
+
+<p>And all this and a bit more with just a single line of code:</p>
+
+<div class="highlight"><pre><span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">button</span> <span class="ss">:submit_retry</span><span class="p">,</span> <span class="ss">cancel</span><span class="p">:</span> <span class="n">root_path</span>
+</pre></div>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'simple_form-magic_submit'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install simple_form-magic_submit
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>In your view template add it allong the lines of:</p>
+
+<div class="highlight"><pre><span class="p">=</span> <span class="n">simple_form_for</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">error_notification</span>
+    <span class="nc">.form-inputs</span>
+        <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">autofocus</span><span class="p">:</span> <span class="kp">true</span>
+    <span class="nc">.form-actions</span>
+        <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">button</span> <span class="ss">:submit_retry</span>
+</pre></div>
+
+<p>The last one is this gem's magic.</p>
+
+<p>To add a cancel link:</p>
+
+<div class="highlight"><pre><span class="p">=</span> <span class="n">simple_form_for</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">error_notification</span>
+    <span class="nc">.form-inputs</span>
+        <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">autofocus</span><span class="p">:</span> <span class="kp">true</span>
+    <span class="nc">.form-actions</span>
+        <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">button</span> <span class="ss">:submit_retry</span><span class="p">,</span> <span class="ss">cancel</span><span class="p">:</span> <span class="n">root_path</span>
+</pre></div>
+
+<p>Replace <code>root_path</code> with whatever path is relevant for your app.</p>
+
+<h2>Localization</h2>
+
+<p>The gem comes bundled with an English translation in <a href="https://github.com/eploko/simple_form-magic_submit/blob/master/locales/en.yml">en.yml</a>:</p>
+
+<div class="highlight"><pre><span class="l-Scalar-Plain">en</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">simple_form</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">magic_submit</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">submit</span><span class="p-Indicator">:</span> <span class="s">"Create</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">new</span><span class="nv"> </span><span class="s">%{model}"</span>
+          <span class="l-Scalar-Plain">retry</span><span class="p-Indicator">:</span> <span class="s">"Try</span><span class="nv"> </span><span class="s">creating</span><span class="nv"> </span><span class="s">once</span><span class="nv"> </span><span class="s">again"</span>
+          <span class="l-Scalar-Plain">loading</span><span class="p-Indicator">:</span> <span class="s">"Creating&amp;#133;"</span>
+        <span class="l-Scalar-Plain">save</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">submit</span><span class="p-Indicator">:</span> <span class="s">"Save</span><span class="nv"> </span><span class="s">changes"</span>
+          <span class="l-Scalar-Plain">retry</span><span class="p-Indicator">:</span> <span class="s">"Try</span><span class="nv"> </span><span class="s">saving</span><span class="nv"> </span><span class="s">once</span><span class="nv"> </span><span class="s">again"</span>
+          <span class="l-Scalar-Plain">loading</span><span class="p-Indicator">:</span> <span class="s">"Saving&amp;#133;"</span>
+      <span class="l-Scalar-Plain">cancel</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">format</span><span class="p-Indicator">:</span> <span class="s">"%{submit_button}</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">%{cancel_link}"</span>
+        <span class="l-Scalar-Plain">cancel</span><span class="p-Indicator">:</span> <span class="s">"Cancel"</span>
+      <span class="c1"># Replace 'model_name' below with the name of your model and</span>
+      <span class="c1"># alter the transaltions as you wish.</span>
+      <span class="c1">#</span>
+      <span class="c1"># Each translation will have %{model} interpolated.</span>
+      <span class="c1">#</span>
+      <span class="c1"># model_name:</span>
+      <span class="c1">#   create:</span>
+      <span class="c1">#     submit: "Create a new %{model}"</span>
+      <span class="c1">#     retry: "Try creating once again"</span>
+      <span class="c1">#     loading: "Creating&amp;#133;"</span>
+      <span class="c1">#   save:</span>
+      <span class="c1">#     submit: "Save changes"</span>
+      <span class="c1">#     retry: "Try saving once again"</span>
+      <span class="c1">#     loading: "Saving&amp;#133;"</span>
+</pre></div>
+
+<p>Simply copy the file to you config/locales folder inside your Rails project if you want to change the default strings.</p>
+
+<h2>To-do</h2>
+
+<ol>
+<li>Add tests.</li>
+<li>Add more translations.</li>
+<li>You tell me.</li>
+</ol><h2>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/eploko/simple_form-magic_submit/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/eploko/simple_form-magic_submit/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/eploko/simple_form-magic_submit"></a> is maintained by <a href="https://github.com/eploko">eploko</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
