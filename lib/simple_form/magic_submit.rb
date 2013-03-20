@@ -4,21 +4,19 @@ module SimpleForm
   module MagicSubmit
 
     def submit_retry_button(*args, &block)
-      template.content_tag :div, :class => "form-actions" do
-        options = args.extract_options!
-        options[:"data-loading-text"] ||= translate_key(:loading)
-        options[:class] = ['btn-primary', 'btn-submit', options[:class]].compact
-        options[:id] ||= "submit_#{object_scope}"
-        args << options
-        if cancel = options.delete(:cancel)
-          I18n.t("simple_form.magic_submit.cancel.format",
-            submit_button: submit(translate_key, *args, &block).html_safe,
-            cancel_link: template.link_to(I18n.t('simple_form.magic_submit.cancel.cancel').html_safe, cancel)
-          )
-        else
-          submit(translate_key, *args, &block)
-        end.html_safe
-      end
+      options = args.extract_options!
+      options[:"data-loading-text"] ||= translate_key(:loading)
+      options[:class] = ['btn-primary', 'btn-submit', options[:class]].compact
+      options[:id] ||= "submit_#{object_scope}"
+      args << options
+      if cancel = options.delete(:cancel)
+        I18n.t("simple_form.magic_submit.cancel.format",
+          submit_button: submit(translate_key, *args, &block).html_safe,
+          cancel_link: template.link_to(I18n.t('simple_form.magic_submit.cancel.cancel').html_safe, cancel)
+        )
+      else
+        submit(translate_key, *args, &block)
+      end.html_safe
     end
 
   private
