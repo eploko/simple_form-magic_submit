@@ -23,7 +23,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In your view template add it allong the lines of:
+
+```haml
+= simple_form_for(resource) do |f|
+    = f.error_notification
+    .form-inputs
+        = f.input :email, autofocus: true
+    .form-actions
+        = f.button :submit_retry
+```
+
+The last one is this gem's magic.
+
+To add a cancel link:
+
+```haml
+= simple_form_for(resource) do |f|
+    = f.error_notification
+    .form-inputs
+        = f.input :email, autofocus: true
+    .form-actions
+        = f.button :submit_retry, cancel: root_path
+```
+
+Replace `root_path` with whatever path is relevant for your app.
 
 ## Contributing
 
