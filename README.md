@@ -69,6 +69,50 @@ To add a cancel link:
 
 Replace `root_path` with whatever path is relevant for your app.
 
+## Localization
+
+The gem comes bundled with an English translation in [en.yml](https://github.com/eploko/simple_form-magic_submit/blob/master/locales/en.yml):
+
+```yaml
+en:
+  simple_form:
+    magic_submit:
+      default:
+        create:
+          submit: "Create a new %{model}"
+          retry: "Try creating once again"
+          loading: "Creating&#133;"
+        save:
+          submit: "Save changes"
+          retry: "Try saving once again"
+          loading: "Saving&#133;"
+      cancel:
+        format: "%{submit_button} or %{cancel_link}"
+        cancel: "Cancel"
+      # Replace 'model_name' below with the name of your model and
+      # alter the transaltions as you wish.
+      #
+      # Each translation will have %{model} interpolated.
+      #
+      # model_name:
+      #   create:
+      #     submit: "Create a new %{model}"
+      #     retry: "Try creating once again"
+      #     loading: "Creating&#133;"
+      #   save:
+      #     submit: "Save changes"
+      #     retry: "Try saving once again"
+      #     loading: "Saving&#133;"
+```
+
+Simply copy the file to you config/locales folder inside your Rails project if you want to change the default strings.
+
+## To-do
+
+1. Add tests.
+2. Add more translations.
+3. You tell me.
+
 ## Contributing
 
 1. Fork it
