@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["andrey@subbotin.me"]
   spec.description   = "A smart submit button extension for the Simple Form gem."
   spec.summary       = "Magic Submit Button for Simple Form"
-  spec.homepage      = 'http://rubygems.org/gems/simple_form-magic_submit'
+  spec.homepage      = 'https://github.com/eploko/simple_form-magic_submit'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
