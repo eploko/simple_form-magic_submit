@@ -78,34 +78,37 @@ en:
   simple_form:
     magic_submit:
       default:
-        create:
+        new:
           submit: "Create a new %{model}"
           retry: "Try creating once again"
           disable_with: "Creating&#133;"
-        save:
+        edit:
           submit: "Save changes"
           retry: "Try saving once again"
           disable_with: "Saving&#133;"
       cancel:
         format: "%{submit_button} or %{cancel_link}"
         cancel: "Cancel"
-      # Replace 'model_name' below with the name of your model and
-      # alter the transaltions as you wish.
-      #
-      # Each translation will have %{model} interpolated.
-      #
-      # model_name:
-      #   create:
-      #     submit: "Create a new %{model}"
-      #     retry: "Try creating once again"
-      #     disable_with: "Creating&#133;"
-      #   save:
-      #     submit: "Save changes"
-      #     retry: "Try saving once again"
-      #     disable_with: "Saving&#133;"
 ```
 
-Simply copy the file to you config/locales folder inside your Rails project if you want to change the default strings.
+Simply copy the file to you `config/locales` folder inside your Rails project if you want to change the default strings.
+
+Say, for the title the keys will be looked up in the following order:
+
+1. `simple_form.magic_submit.namespace_name.controller_name.model_name.action.submit`
+2. `simple_form.magic_submit.namespace_name.controller_name.action.submit`
+3. `simple_form.magic_submit.default.action.submit`
+4. `helpers.submit.action`
+
+Say for a `Admin::UsersController` and a `Roles` model, the following lookups will be
+made on the edit action:
+
+1. `simple_form.magic_submit.admin.users.roles.edit.submit`
+2. `simple_form.magic_submit.admin.users.edit.submit`
+3. `simple_form.magic_submit.default.edit.submit`
+4. `helpers.submit.edit`
+
+Each lookup will have `%{model}` interpolated to the name of the model.
 
 ## To-do
 
