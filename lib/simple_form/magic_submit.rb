@@ -3,7 +3,7 @@ require "simple_form/magic_submit/version"
 module SimpleForm
   module MagicSubmit
 
-    def submit_retry_button(*args, &block)
+    def magic_submit_button(*args, &block)
       options = args.extract_options!
       options[:data] ||= {}
       options[:data][:disable_with] ||= translate_key(:disable_with)

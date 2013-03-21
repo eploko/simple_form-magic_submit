@@ -24,7 +24,7 @@ When something goes wrong and the model fails validation:
 And all this and a bit more with just a single line of code:
 
 ```haml
-= f.button :submit_retry, cancel: root_path
+= f.button :magic_submit, cancel: root_path
 ```
 
 ## Installation
@@ -51,7 +51,7 @@ In your view template add it allong the lines of:
     .form-inputs
         = f.input :email, autofocus: true
     .form-actions
-        = f.button :submit_retry
+        = f.button :magic_submit
 ```
 
 The last one is this gem's magic.
@@ -64,7 +64,7 @@ To add a cancel link:
     .form-inputs
         = f.input :email, autofocus: true
     .form-actions
-        = f.button :submit_retry, cancel: root_path
+        = f.button :magic_submit, cancel: root_path
 ```
 
 Replace `root_path` with whatever path is relevant for your app.
