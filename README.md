@@ -3,7 +3,7 @@
 A smart submit button extension for the Simple Form gem that:
 
 - Displays an alternate title on validation errors.
-- Displays a different "Loading..." title depending on whether the model is being saved or updated.
+- Displays a different "Loading..." title depending on whether the model is being created or updated.
 - Is optionally postfixed with a "Cancel" link.
 - Is fully localizable via the I18n gem.
 
@@ -81,11 +81,11 @@ en:
         create:
           submit: "Create a new %{model}"
           retry: "Try creating once again"
-          loading: "Creating&#133;"
+          disable_with: "Creating&#133;"
         save:
           submit: "Save changes"
           retry: "Try saving once again"
-          loading: "Saving&#133;"
+          disable_with: "Saving&#133;"
       cancel:
         format: "%{submit_button} or %{cancel_link}"
         cancel: "Cancel"
@@ -98,11 +98,11 @@ en:
       #   create:
       #     submit: "Create a new %{model}"
       #     retry: "Try creating once again"
-      #     loading: "Creating&#133;"
+      #     disable_with: "Creating&#133;"
       #   save:
       #     submit: "Save changes"
       #     retry: "Try saving once again"
-      #     loading: "Saving&#133;"
+      #     disable_with: "Saving&#133;"
 ```
 
 Simply copy the file to you config/locales folder inside your Rails project if you want to change the default strings.
