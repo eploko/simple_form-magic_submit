@@ -32,6 +32,8 @@
       <section>
         <h1>Magic Submit Button for Simple Form</h1>
 
+<p><a href="https://gemnasium.com/eploko/simple_form-magic_submit"><img src="https://gemnasium.com/eploko/simple_form-magic_submit.png" alt="Dependency Status"></a></p>
+
 <p>A smart submit button extension for the Simple Form gem that:</p>
 
 <ul>
@@ -109,34 +111,37 @@
   <span class="l-Scalar-Plain">simple_form</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">magic_submit</span><span class="p-Indicator">:</span>
       <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>
-        <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">new</span><span class="p-Indicator">:</span>
           <span class="l-Scalar-Plain">submit</span><span class="p-Indicator">:</span> <span class="s">"Create</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">new</span><span class="nv"> </span><span class="s">%{model}"</span>
           <span class="l-Scalar-Plain">retry</span><span class="p-Indicator">:</span> <span class="s">"Try</span><span class="nv"> </span><span class="s">creating</span><span class="nv"> </span><span class="s">once</span><span class="nv"> </span><span class="s">again"</span>
           <span class="l-Scalar-Plain">disable_with</span><span class="p-Indicator">:</span> <span class="s">"Creating&amp;#133;"</span>
-        <span class="l-Scalar-Plain">save</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">edit</span><span class="p-Indicator">:</span>
           <span class="l-Scalar-Plain">submit</span><span class="p-Indicator">:</span> <span class="s">"Save</span><span class="nv"> </span><span class="s">changes"</span>
           <span class="l-Scalar-Plain">retry</span><span class="p-Indicator">:</span> <span class="s">"Try</span><span class="nv"> </span><span class="s">saving</span><span class="nv"> </span><span class="s">once</span><span class="nv"> </span><span class="s">again"</span>
           <span class="l-Scalar-Plain">disable_with</span><span class="p-Indicator">:</span> <span class="s">"Saving&amp;#133;"</span>
       <span class="l-Scalar-Plain">cancel</span><span class="p-Indicator">:</span>
         <span class="l-Scalar-Plain">format</span><span class="p-Indicator">:</span> <span class="s">"%{submit_button}</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">%{cancel_link}"</span>
         <span class="l-Scalar-Plain">cancel</span><span class="p-Indicator">:</span> <span class="s">"Cancel"</span>
-      <span class="c1"># Replace 'model_name' below with the name of your model and</span>
-      <span class="c1"># alter the transaltions as you wish.</span>
-      <span class="c1">#</span>
-      <span class="c1"># Each translation will have %{model} interpolated.</span>
-      <span class="c1">#</span>
-      <span class="c1"># model_name:</span>
-      <span class="c1">#   create:</span>
-      <span class="c1">#     submit: "Create a new %{model}"</span>
-      <span class="c1">#     retry: "Try creating once again"</span>
-      <span class="c1">#     disable_with: "Creating&amp;#133;"</span>
-      <span class="c1">#   save:</span>
-      <span class="c1">#     submit: "Save changes"</span>
-      <span class="c1">#     retry: "Try saving once again"</span>
-      <span class="c1">#     disable_with: "Saving&amp;#133;"</span>
 </pre></div>
 
-<p>Simply copy the file to you config/locales folder inside your Rails project if you want to change the default strings.</p>
+<p>Simply copy the file to you <code>config/locales</code> folder inside your Rails project if you want to change the default strings.</p>
+
+<p>Say, for the title the keys will be looked up in the following order:</p>
+
+<ol>
+<li><code>simple_form.magic_submit.namespace_name.controller_name.model_name.action.submit</code></li>
+<li><code>simple_form.magic_submit.namespace_name.controller_name.action.submit</code></li>
+<li><code>simple_form.magic_submit.default.action.submit</code></li>
+<li><code>helpers.submit.action</code></li>
+</ol><p>Say, for a <code>Admin::UsersController</code> and a <code>Roles</code> model, the following lookups will be
+made on the edit action:</p>
+
+<ol>
+<li><code>simple_form.magic_submit.admin.users.roles.edit.submit</code></li>
+<li><code>simple_form.magic_submit.admin.users.edit.submit</code></li>
+<li><code>simple_form.magic_submit.default.edit.submit</code></li>
+<li><code>helpers.submit.edit</code></li>
+</ol><p>Each lookup will have <code>%{model}</code> interpolated to the name of the model.</p>
 
 <h2>To-do</h2>
 
