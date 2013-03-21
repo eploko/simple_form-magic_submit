@@ -1,5 +1,7 @@
 # Magic Submit Button for Simple Form
 
+[![Dependency Status](https://gemnasium.com/eploko/simple_form-magic_submit.png)](https://gemnasium.com/eploko/simple_form-magic_submit)
+
 A smart submit button extension for the Simple Form gem that:
 
 - Displays an alternate title on validation errors.
