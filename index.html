@@ -36,7 +36,7 @@
 
 <ul>
 <li>Displays an alternate title on validation errors.</li>
-<li>Displays a different "Loading..." title depending on whether the model is being saved or updated.</li>
+<li>Displays a different "Loading..." title depending on whether the model is being created or updated.</li>
 <li>Is optionally postfixed with a "Cancel" link.</li>
 <li>Is fully localizable via the I18n gem.</li>
 </ul><h2>A picture's worth a thousand words, right?</h2>
@@ -112,11 +112,11 @@
         <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
           <span class="l-Scalar-Plain">submit</span><span class="p-Indicator">:</span> <span class="s">"Create</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">new</span><span class="nv"> </span><span class="s">%{model}"</span>
           <span class="l-Scalar-Plain">retry</span><span class="p-Indicator">:</span> <span class="s">"Try</span><span class="nv"> </span><span class="s">creating</span><span class="nv"> </span><span class="s">once</span><span class="nv"> </span><span class="s">again"</span>
-          <span class="l-Scalar-Plain">loading</span><span class="p-Indicator">:</span> <span class="s">"Creating&amp;#133;"</span>
+          <span class="l-Scalar-Plain">disable_with</span><span class="p-Indicator">:</span> <span class="s">"Creating&amp;#133;"</span>
         <span class="l-Scalar-Plain">save</span><span class="p-Indicator">:</span>
           <span class="l-Scalar-Plain">submit</span><span class="p-Indicator">:</span> <span class="s">"Save</span><span class="nv"> </span><span class="s">changes"</span>
           <span class="l-Scalar-Plain">retry</span><span class="p-Indicator">:</span> <span class="s">"Try</span><span class="nv"> </span><span class="s">saving</span><span class="nv"> </span><span class="s">once</span><span class="nv"> </span><span class="s">again"</span>
-          <span class="l-Scalar-Plain">loading</span><span class="p-Indicator">:</span> <span class="s">"Saving&amp;#133;"</span>
+          <span class="l-Scalar-Plain">disable_with</span><span class="p-Indicator">:</span> <span class="s">"Saving&amp;#133;"</span>
       <span class="l-Scalar-Plain">cancel</span><span class="p-Indicator">:</span>
         <span class="l-Scalar-Plain">format</span><span class="p-Indicator">:</span> <span class="s">"%{submit_button}</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">%{cancel_link}"</span>
         <span class="l-Scalar-Plain">cancel</span><span class="p-Indicator">:</span> <span class="s">"Cancel"</span>
@@ -129,11 +129,11 @@
       <span class="c1">#   create:</span>
       <span class="c1">#     submit: "Create a new %{model}"</span>
       <span class="c1">#     retry: "Try creating once again"</span>
-      <span class="c1">#     loading: "Creating&amp;#133;"</span>
+      <span class="c1">#     disable_with: "Creating&amp;#133;"</span>
       <span class="c1">#   save:</span>
       <span class="c1">#     submit: "Save changes"</span>
       <span class="c1">#     retry: "Try saving once again"</span>
-      <span class="c1">#     loading: "Saving&amp;#133;"</span>
+      <span class="c1">#     disable_with: "Saving&amp;#133;"</span>
 </pre></div>
 
 <p>Simply copy the file to you config/locales folder inside your Rails project if you want to change the default strings.</p>
