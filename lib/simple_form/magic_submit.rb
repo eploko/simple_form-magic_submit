@@ -5,9 +5,11 @@ module SimpleForm
 
     def submit_retry_button(*args, &block)
       options = args.extract_options!
-      options[:"data-loading-text"] ||= translate_key(:loading)
+      options[:data] ||= {}
+      options[:data][:disable_with] ||= translate_key(:disable_with)
       options[:class] = ['btn-primary', 'btn-submit', options[:class]].compact
       options[:id] ||= "submit_#{object_scope}"
+      options[:autocomplete] ||= :off
       args << options
       if cancel = options.delete(:cancel)
         I18n.t("simple_form.magic_submit.cancel.format",

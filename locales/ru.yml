@@ -1,0 +1,29 @@
+ru:
+  simple_form:
+    magic_submit:
+      default:
+        create:
+          submit: "Сохранить"
+          retry: "Попробовать еще раз"
+          disable_with: "Сохранение&#133;"
+        save:
+          submit: "Сохранить изменения"
+          retry: "Попробовать еще раз"
+          disable_with: "Сохранение&#133;"
+      cancel:
+        format: "%{submit_button} или %{cancel_link}"
+        cancel: "отменить"
+      # Replace 'model_name' below with the name of your model and
+      # alter the transaltions as you wish.
+      #
+      # Each translation will have %{model} interpolated.
+      #
+      # model_name:
+      #   create:
+      #     submit: "Создать %{model}"
+      #     retry: "Попробовать создать еще раз"
+      #     disable_with: "Создание&#133;"
+      #   save:
+      #     submit: "Сохранить изменения"
+      #     retry: "Попробовать сохранить еще раз"
+      #     disable_with: "Сохранение&#133;"

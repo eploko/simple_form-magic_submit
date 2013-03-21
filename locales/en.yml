@@ -5,11 +5,11 @@ en:
         create:
           submit: "Create a new %{model}"
           retry: "Try creating once again"
-          loading: "Creating&#133;"
+          disable_with: "Creating&#133;"
         save:
           submit: "Save changes"
           retry: "Try saving once again"
-          loading: "Saving&#133;"
+          disable_with: "Saving&#133;"
       cancel:
         format: "%{submit_button} or %{cancel_link}"
         cancel: "Cancel"
@@ -22,8 +22,8 @@ en:
       #   create:
       #     submit: "Create a new %{model}"
       #     retry: "Try creating once again"
-      #     loading: "Creating&#133;"
+      #     disable_with: "Creating&#133;"
       #   save:
       #     submit: "Save changes"
       #     retry: "Try saving once again"
-      #     loading: "Saving&#133;"
+      #     disable_with: "Saving&#133;"
