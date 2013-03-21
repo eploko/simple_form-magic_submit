@@ -22,16 +22,22 @@ module SimpleForm
     end
 
   private
+    def controller_scope
+      template.controller.params[:controller].gsub('/', '.')
+    end
 
     def object_scope
       self.object.class.model_name.underscore
     end
 
     def translate_key(key = nil)
-      op = self.object.new_record? ? :create : :save
       key ||= self.object.errors.count > 0 ? :retry : :submit
-      I18n.t("simple_form.magic_submit.#{object_scope}.#{op}.#{key}",
-        default: [:"simple_form.magic_submit.default.#{op}.#{key}", :"helpers.submit.#{op}"],
+      I18n.t("simple_form.magic_submit.#{controller_scope}.#{object_scope}.#{lookup_action}.#{key}",
+        default: [
+          :"simple_form.magic_submit.#{controller_scope}.#{lookup_action}.#{key}",
+          :"simple_form.magic_submit.default.#{lookup_action}.#{key}",
+          :"helpers.submit.#{lookup_action}"
+        ],
         model: self.object.class.model_name.titlecase
       ).html_safe
     end
