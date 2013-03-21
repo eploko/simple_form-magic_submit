@@ -100,7 +100,7 @@ Say, for the title the keys will be looked up in the following order:
 3. `simple_form.magic_submit.default.action.submit`
 4. `helpers.submit.action`
 
-Say for a `Admin::UsersController` and a `Roles` model, the following lookups will be
+Say, for a `Admin::UsersController` and a `Roles` model, the following lookups will be
 made on the edit action:
 
 1. `simple_form.magic_submit.admin.users.roles.edit.submit`
