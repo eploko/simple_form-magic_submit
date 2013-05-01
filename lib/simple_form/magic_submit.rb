@@ -27,7 +27,7 @@ module SimpleForm
     end
 
     def object_scope
-      self.object.class.model_name.underscore
+      self.object.class.model_name.i18n_key.to_s
     end
 
     def translate_key(key = nil)
@@ -38,7 +38,7 @@ module SimpleForm
           :"simple_form.magic_submit.default.#{lookup_action}.#{key}",
           :"helpers.submit.#{lookup_action}"
         ],
-        model: self.object.class.model_name.titlecase
+        model: self.object.class.model_name.human.titlecase
       ).html_safe
     end
 
