@@ -22,7 +22,7 @@ module SimpleForm
     end
 
   private
-    def main_class
+    def main_class(options = {})
       options.fetch(:destructive, false) ? 'btn-destructive' : 'btn-primary'
     end
     
