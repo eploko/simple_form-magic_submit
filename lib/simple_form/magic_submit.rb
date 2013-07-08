@@ -7,7 +7,7 @@ module SimpleForm
       options = args.extract_options!
       options[:data] ||= {}
       options[:data][:disable_with] ||= translate_key(:disable_with)
-      options[:class] = ['btn-primary', 'btn-submit', options[:class]].compact
+      options[:class] = [main_class(options), 'btn-submit', options[:class]].compact
       options[:id] ||= "submit_#{object_scope}"
       options[:autocomplete] ||= :off
       args << options
@@ -22,6 +22,10 @@ module SimpleForm
     end
 
   private
+    def main_class
+      options.fetch(:destructive, false) ? 'btn-destructive' : 'btn-primary'
+    end
+    
     def controller_scope
       template.controller.params[:controller].gsub('/', '.')
     end
