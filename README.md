@@ -125,3 +125,8 @@ Each lookup will have `%{model}` interpolated to the name of the model.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Thanks go to...
+
+Victor Nahuel Chaves (https://github.com/nahue) for adding support for model-less forms.
+
