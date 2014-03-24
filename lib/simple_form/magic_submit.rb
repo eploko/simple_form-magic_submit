@@ -24,7 +24,9 @@ module SimpleForm
   private
 
     def bound_to_model?
-      #  if its a string means that its bound to a model.. but if its a symbol its not...
+      # return true if we are using Devise views
+      return true if self.template.controller.class.to_s.split("::").first == "Devise"
+      # if its a string means that its bound to a model.. but if its a symbol its not...
       self.object_name.is_a?(String)# || self.object.present?
     end
 
