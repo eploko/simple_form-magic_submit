@@ -24,8 +24,18 @@ module SimpleForm
   private
 
     def bound_to_model?
-      #  if its a string means that its bound to a model.. but if its a symbol its not...
+      # if its a string means that its bound to a model.. but if its a symbol its not...
+      return true if its_devise?
+
       self.object_name.is_a?(String)# || self.object.present?
+    end
+
+    def its_devise?
+      self.template.controller.class.to_s.split("::").first == "Devise"
+    end
+
+    def got_errors
+      self.object.errors.count > 0 || self.template.flash.count > 0
     end
 
     def main_class(options = {})
@@ -49,8 +59,7 @@ module SimpleForm
     def translate_key(key = nil)
 
       if bound_to_model?
-        key ||= self.object.errors.count > 0 ? :retry : :submit
-
+        key ||=  got_errors ? :retry : :submit
         I18n.t("simple_form.magic_submit.#{controller_scope}.#{object_scope}.#{lookup_action}.#{key}",
           default: [
             :"simple_form.magic_submit.#{controller_scope}.#{lookup_action}.#{key}",
